@@ -1,3 +1,16 @@
+import os
+import subprocess
+import sys
+
+# Auto-installer logic to bypass Streamlit's picky installer
+try:
+    import tensorflow as tf
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tensorflow-cpu==2.15.0"])
+    import tensorflow as tf
+
+import streamlit as st
+# ... rest of your code ...
 import streamlit as st
 from streamlit_webrtc import webrtc_streamer, RTCConfiguration, WebRtcMode
 import cv2
